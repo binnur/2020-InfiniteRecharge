@@ -16,6 +16,8 @@ public class Intake extends SpartronicsSubsystem
     private final CANSparkMax mHarvestMotor;
     private final CANSparkMax mIngestMotor;
 
+    // FIXME: are the sensor for ball detection missing?
+
     /** constructor **/
     public Intake()
     {
@@ -44,12 +46,14 @@ public class Intake extends SpartronicsSubsystem
     /** reverses vector wheels **/
     public void harvestReverse() 
     {
+        // FIXME: for readability, use Const specifically for reversing, not '-'
         mHarvestMotor.set(-Constants.Intake.kHarvestSpeed);
     }
 
     /** reverses prism roller **/
     public void ingestReverse() 
     {
+        // FIXME: for readability, use Const specifically for reversing, not '-'
         mIngestMotor.set(-Constants.Intake.kIngestSpeed);
     }
 
@@ -66,6 +70,7 @@ public class Intake extends SpartronicsSubsystem
     }
 
     /** checks to see if ball is held in intake chamber **/
+    // FIXME: who determines if the ball is held or not?
     public void isBallHeld() 
     {
 

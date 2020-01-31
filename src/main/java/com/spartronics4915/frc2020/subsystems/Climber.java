@@ -44,6 +44,7 @@ public class Climber extends SpartronicsSubsystem
 
     public void retract()
     {
+        // FIXME: for readability, define retract speed instead of adding '-'
         mLiftMotor.set(ControlMode.PercentOutput, -Constants.Climber.kExtendSpeed);
         mWinchMotor.set(0.0);
     }
@@ -59,6 +60,7 @@ public class Climber extends SpartronicsSubsystem
         return mWinchMotor.getBusVoltage();
     }
 
+    // FIXME: LOL!! 
     public boolean isStalled()
     {
         return false;

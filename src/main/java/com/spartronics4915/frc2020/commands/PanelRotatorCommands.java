@@ -65,6 +65,9 @@ public class PanelRotatorCommands
         @Override
         public boolean isFinished()
         {
+            // FIXME: two thoughts:
+            // 1) getActualColor should be saved when SpinToColor is called
+            // 2) we are dealing w/ colorMatch -- rethink the comparison check
             if (mPanelRotator.getActualColor() == mPanelRotator.getTargetColor())
                 return true;
             else
@@ -118,7 +121,9 @@ public class PanelRotatorCommands
         @Override
         public boolean isFinished()
         {
+            // FIXME: is this done based on encoder or color test?
             currentColor = mPanelRotator.getActualColor();
+            // FIXME: think about how the color match should be performed
             if (currentColor != lastColor)
                 eighths++;
             lastColor = currentColor;

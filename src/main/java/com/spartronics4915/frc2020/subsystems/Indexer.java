@@ -14,8 +14,10 @@ import edu.wpi.first.wpilibj.DigitalInput;
  */
 public class Indexer extends SpartronicsSubsystem
 {
+    // FIXME: how is targetPosition used: returns between 0 and 1.0
     private double targetPosition = 0;
 
+    // FIXME: rename to IndexerMotor? 
     private SpartronicsMotor mSpinnerMotor;
     private SpartronicsMotor mLoaderMotor;
 
@@ -33,6 +35,7 @@ public class Indexer extends SpartronicsSubsystem
         mSpinnerModel = SensorModel.fromMultiplier(Constants.Indexer.Spinner.kConversionRatio);
         mSpinnerMotor = SpartronicsMax.makeMotor(Constants.Indexer.Spinner.kMotorId, mSpinnerModel);
         // Set up gains
+        // FIXME: review the PD values for gains
         mSpinnerMotor.setVelocityGains(Constants.Indexer.Spinner.kVelocityP,
             Constants.Indexer.Spinner.kVelocityD);
         mSpinnerMotor.setPositionGains(Constants.Indexer.Spinner.kPositionP,
@@ -42,6 +45,7 @@ public class Indexer extends SpartronicsSubsystem
         mLoaderModel = SensorModel.fromMultiplier(Constants.Indexer.Loader.kConversionRatio);
         mLoaderMotor = SpartronicsSRX.makeMotor(Constants.Indexer.Loader.kMotor, mLoaderModel);
         // Set up gains
+        // FIXME: review the PD values for gains
         mLoaderMotor.setVelocityGains(Constants.Indexer.Loader.kVelocityP,
             Constants.Indexer.Loader.kVelocityD);
         mLoaderMotor.setPositionGains(Constants.Indexer.Loader.kPositionP,
@@ -74,6 +78,7 @@ public class Indexer extends SpartronicsSubsystem
     /**
      * Sets the spinner encoder to zero at it's current position
      */
+    // FIXME: rename to reflect it is for encoder
     public void setZero()
     {
         mSpinnerMotor.getEncoder().setPosition(0);
@@ -95,6 +100,7 @@ public class Indexer extends SpartronicsSubsystem
     {
         double deltaPosition = 0.25 * ((double) N); // Cast N to double and convert to rotations
         targetPosition += deltaPosition;
+        // FIXME: 0.25 meter is ~10" -- is that expected value?
         mSpinnerMotor.setPosition(targetPosition); // Rotate Spinner to target.
     }
 
@@ -113,6 +119,7 @@ public class Indexer extends SpartronicsSubsystem
     public void toNearestQuarterRotation()
     {
         // Rotates to nearest quarter rotation
+        // FIXME: what does getEncoder() return? 
         targetPosition = Math.ceil(mSpinnerMotor.getEncoder().getPosition() * 4) / 4;
         mSpinnerMotor.setPosition(targetPosition);
     }

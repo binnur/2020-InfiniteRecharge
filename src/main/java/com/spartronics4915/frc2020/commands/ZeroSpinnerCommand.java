@@ -4,6 +4,7 @@ import com.spartronics4915.frc2020.subsystems.Indexer;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
+// FIXME: rename to reflect indexer? thought it was part of panel rotation
 public class ZeroSpinnerCommand extends CommandBase
 {
 

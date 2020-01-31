@@ -10,6 +10,9 @@ public class LauncherDefaultCommand extends CommandBase
 
     // You should only use one subsystem per command. If multiple are needed, use a
     // CommandGroup.
+
+    // FIXME: what is the purpose of the default command? to track to vision, as
+    // an example?
     public LauncherDefaultCommand(Launcher launcher)
     {
         mLauncher = launcher;

@@ -28,6 +28,7 @@ public class Launcher extends SpartronicsSubsystem
         try
         {
             // ONE NEO for flywheel
+            // FIXME: is the toRadians(1) correct for Flywheel sensorModel?
             mFlywheelMasterMotor = SpartronicsMax.makeMotor(Constants.Launcher.kFlywheelMasterId, SensorModel.toRadians(1),
                 Constants.Launcher.kFlywheelFollowerId);// new SpartronicsMax(Constants.Launcher.kFlywheelMasterID,SensorModel.toRadians(1));
             mFlywheelEncoder = mFlywheelMasterMotor.getEncoder();
@@ -37,6 +38,7 @@ public class Launcher extends SpartronicsSubsystem
             // One NEO 550 motor for turret
             mTurretMotor = SpartronicsMax.makeMotor(Constants.Launcher.kTurretId, SensorModel.toRadians(360));
             turnTurret(0);
+            // FIXME: do not use hard coded values as parameters -- use Constants file
             mTurretPotentiometer = new AnalogPotentiometer(Constants.Launcher.kTurretPotentiometerId, 90, -45);
             setDefaultCommand(new LauncherDefaultCommand(this));
             success = true;
@@ -83,6 +85,8 @@ public class Launcher extends SpartronicsSubsystem
      */
     public void setPitch(double angle)
     {
+        // FIXME: given there is a constraint -- shouldn't setPitch return
+        // success or not?
         if (angle > 30)
         {
             angle = 30;
@@ -144,6 +148,7 @@ public class Launcher extends SpartronicsSubsystem
      */
     public double calcPitch(double distance)
     {
+        // FIXME: what are we testing for?
         double angle = 0.0;
         return angle;
     }
@@ -155,6 +160,7 @@ public class Launcher extends SpartronicsSubsystem
      */
     public double calcRPM(double distance)
     {
+        // FIXME: what are we testing for?
         double RPM = 0.0;
         return RPM;
     }
@@ -165,6 +171,7 @@ public class Launcher extends SpartronicsSubsystem
      */
     public boolean inFOV()
     {
+        // FIXME: what are we testing for?
         boolean inRotationRange = true;
         return inRotationRange;
     }
@@ -175,6 +182,7 @@ public class Launcher extends SpartronicsSubsystem
      */
     public boolean inRange()
     {
+        // FIXME: what are we testing for?
         boolean inRange = true;
         return inRange;
     }

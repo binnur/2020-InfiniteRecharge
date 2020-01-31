@@ -22,6 +22,7 @@ public class ClimberCommands
     {
         public Extend()
         {
+            // FIXME: how does it know it extended enough? what will signal stop?
             super(mClimber::extend, mClimber::stop, mClimber);
         }
 

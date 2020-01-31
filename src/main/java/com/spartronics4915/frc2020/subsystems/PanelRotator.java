@@ -24,6 +24,7 @@ public class PanelRotator extends SpartronicsSubsystem
 
     private final ColorSensorV3 mColorSensor;
 
+    // FIXME: need to think about making colors and how colors are calibrated
     // TODO: These are essentially random numbers, with the max value based on the
     // images at
     // https://www.andymark.com/products/infinite-recharge-control-panel-stickr
@@ -74,6 +75,8 @@ public class PanelRotator extends SpartronicsSubsystem
     /** lowers the arm holding the spinner at a set speed*/
     public void lower()
     {
+        // FIXME: needs better readability -- be explicit w/ motor speed: kRetractMotorSpeed
+        // w/ negative value more readable than adding '-' in front of the Constant
         mExtendMotor.setDutyCycle(-Constants.PanelRotator.kExtendMotorSpeed);
     }
 
@@ -89,6 +92,7 @@ public class PanelRotator extends SpartronicsSubsystem
         return DriverStation.getInstance().getGameSpecificMessage();
     }
 
+    // FIXME: read thru revrobotics code - https://github.com/REVrobotics/Color-Sensor-v3-Examples/blob/master/Java/Color%20Match/src/main/java/frc/robot/Robot.java
     /** finds what color the color sensor is seeing  (Red, Blue, Yellow, or Green); currently just a placeholder for output */
     public String getActualColor()
     {
@@ -164,6 +168,7 @@ public class PanelRotator extends SpartronicsSubsystem
     }
 
     /** get the number of times that the spinning */
+    // FIXME: think about what it means to serve real-time info from 1) encoder; 2) color sensor
     public double getRotations()
     {
         return -1; // TODO: not complete
