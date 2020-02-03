@@ -101,12 +101,21 @@ public class PanelRotator extends SpartronicsSubsystem
     }
 
     /**
-     * Retrieves the FMS assigned color and formats it for future matching
+     * Returns the FMS color in a way that is expected for comparison test
+     * @return RED, BLUE, ... or null
+     */
+    public String getFMSAssignedColor()
+    {
+        return mFMSAssignedColor;
+    }
+
+    /**
+     * Retrieves the FMS assigned color and parses it for future matching
      *
      * @return A String color - either RED, BLUE, YELLOW, or GREEN or null if
      * not assigned or corrupted data
      */
-    public String getFMSAssignedColor()
+    private String parseFMSAssignedColor()
     {
         // implement:
         // https://docs.wpilib.org/en/latest/docs/software/wpilib-overview/2020-Game-Data.html
